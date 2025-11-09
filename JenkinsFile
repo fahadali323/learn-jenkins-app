@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('bbild') {
+        stage('build') {
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -19,7 +19,11 @@ pipeline {
                     ls -la 
                 '''
             }
-
+        }
+        stage('test'){
+            steps {
+                echo 'Test stage'
+            }
         }
     }
 }
